@@ -67,6 +67,7 @@ var itemSinglePrices = document.getElementsByClassName('item-price')
 var quantityOfItems = document.getElementsByClassName('item-quantity')
 var itemSubTotals = document.getElementsByClassName('item-sub-total')
 var totalCart = document.getElementById('cart-total-price')
+
 var summed = 0
 
 for(var i = 0; i < quantityOfItems.length; i++){
