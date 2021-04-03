@@ -48,7 +48,7 @@
             
 <!-- item  -->
             <div class="cart-item-container">
-                <div class="item">
+                <div class="item" id="item-1">
                     <div class="item-display col-6">
                         <div class="item-image">
                             <img src="./res/Anathema.jpg" alt="Weather Systems">
@@ -57,24 +57,24 @@
                             <p>Anathema - Weather Systems</p>
                             <div class="heart-remove">
                                 <i class="far fa-heart" onclick="toggleClass(this)"></i>
-                                <button type="button" class="btn btn-danger remove-item">Delete</button>
+                                <button type="button" class="btn btn-danger remove-item" id="rmv-1" onclick="remove1()">Delete</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-2">
-                        <span class="item-price" id="anathema-price">25.00</span><span>DT</span>
+                        <span class="item-price" id="price-1">25.00</span><span>DT</span>
                     </div>
                     <div class="col-2 adjust-quantity">
-                        <button type="button" class="btn btn-outline-info btn-sm minus-button" >-</button>
-                        <span class="item-quantity">1</span>
-                        <button type="button" class="btn btn-outline-info btn-sm plus-button">+</button>
+                        <button type="button" class="btn btn-outline-info btn-sm minus-button" id="dec-1" onclick="dec1()">-</button>
+                        <span class="item-quantity" id="quant-1">1</span>
+                        <button type="button" class="btn btn-outline-info btn-sm plus-button" id="inc-1" onclick="inc1()">+</button>
                     </div>
                     <div class="col-2">
-                        <span class="item-sub-total"></span>
+                        <span class="item-sub-total" id="tot-1">25.00</span>
                         <span> DT</span>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item" id="item-2">
                     <div class="item-display col-6">
                         <div class="item-image">
                             <img src="./res/Avenged Sevenfold.jpg" alt="Nightmare">
@@ -83,24 +83,24 @@
                             <p>Avenged Sevenfold - Nightmare</p>
                             <div class="heart-remove">
                                 <i class="far fa-heart" onclick="toggleClass(this)"></i>
-                                <button type="button" class="btn btn-danger remove-item">Delete</button>
+                                <button type="button" class="btn btn-danger remove-item" id="rmv-2" onclick="remove2()">Delete</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-2">
-                        <span class="item-price" id="avenged-sevenfold-price">50.00</span><span>DT</span>
+                        <span class="item-price" id="price-2">50.00</span><span>DT</span>
                     </div>
                     <div class="col-2 adjust-quantity">
-                        <button type="button" class="btn btn-outline-info btn-sm minus-button" >-</button>
-                        <span class="item-quantity">3</span>
-                        <button type="button" class="btn btn-outline-info btn-sm plus-button">+</button>
+                        <button type="button" class="btn btn-outline-info btn-sm minus-button" onclick="dec2()" id="dec-2">-</button>
+                        <span class="item-quantity" id="quant-2">1</span>
+                        <button type="button" class="btn btn-outline-info btn-sm plus-button" onclick="inc2()" id="inc-2">+</button>
                     </div>
                     <div class="col-2">
-                        <span class="item-sub-total"></span>
+                        <span class="item-sub-total" id="tot-2">50.00</span>
                         <span>DT</span>
                     </div>
                 </div>
-                <div class="item">
+                <div class="item" id="item-3">
                     <div class="item-display col-6">
                         <div class="item-image">
                             <img src="./res/Black Clouds & Siver Linings.jpg" alt="Black Clouds & Siver Linings">
@@ -109,20 +109,20 @@
                             <p>Dream Theatre - Black Clouds & Siver Linings</p>
                             <div class="heart-remove">
                                 <i class="far fa-heart" onclick="toggleClass(this)"></i>
-                                <button type="button" class="btn btn-danger remove-item">Delete</button>
+                                <button type="button" class="btn btn-danger remove-item" id="rmv-3" onclick="remove3()">Delete</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-2">
-                        <span class="item-price" id="dream-theatre-price">20.00</span><span>DT</span>
+                        <span class="item-price" id="price-3">20.00</span><span>DT</span>
                     </div>
                     <div class="col-2 adjust-quantity">
-                        <button type="button" class="btn btn-outline-info btn-sm minus-button" >-</button>
-                        <span class="item-quantity">5</span>
-                        <button type="button" class="btn btn-outline-info btn-sm plus-button">+</button>
+                        <button type="button" class="btn btn-outline-info btn-sm minus-button" id="dec-3" onclick="dec3()">-</button>
+                        <span class="item-quantity" id="quant-3">1</span>
+                        <button type="button" class="btn btn-outline-info btn-sm plus-button" id="inc-3"onclick="inc3()">+</button>
                     </div>
                     <div class="col-2">
-                        <span class="item-sub-total"></span>
+                        <span class="item-sub-total" id="tot-3">20.00</span>
                         <span>DT</span>
                     </div>
                 </div>
@@ -134,30 +134,15 @@
         <section class="price">
             <div class="price-total">
                 <strong>Total :</strong>
-                <span class="cart-total-price" id="cart-total-price"></span>
+                <span class="cart-total-price" id="cart-total-price">95.00</span>
                 <span>DT</span>
             </div>
         </section>
         <section class="purchase">
-            <button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
-            <button type="button" class="btn btn-primary btn-lg">Purchase</button>
+            <button type="button" class="btn btn-outline-danger btn-lg" onclick="cancel()">Cancel</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="thx()">Purchase</button>
         </section>
 
-
-
-
-
-
-
-
-
-        
-        
-        
-        
-        
-        
-        
 
     </main>        
 
