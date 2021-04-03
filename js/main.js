@@ -7,88 +7,138 @@ function toggleClass(el) {
         el.className ='far fa-heart'
     }
 
-
-}// remove item from cart
-function removeCartRow (removeEvent){
-    var removeButtonClicked = removeEvent.target
-    removeButtonClicked.parentElement.parentElement.parentElement.parentElement.remove()
-}
-var removeItemButtons = document.getElementsByClassName('remove-item')
-                    // console.log(removeItemButtons)
-for(var i = 0; i < removeItemButtons.length; i++) {
-    var removeButton = removeItemButtons[i]
-    removeButton.addEventListener('click', removeCartRow)
 }
 
-//adjust quantity
 
-var plusValue = document.getElementsByClassName('plus-button')
-var minusValue = document.getElementsByClassName('minus-button')
-        var quantityOfItems = document.getElementsByClassName('item-quantity')
-for(var i = 0; i < plusValue.length; i++){
-    var button = plusValue[i]
-    button.addEventListener('click', function(event){
-        var buttonClicked = event.target
-        var input = buttonClicked.parentElement.children[1]
-        var inputValue = input.innerText
-        var newValue = parseInt(inputValue) + 1
-        input.innerHTML = newValue
-        
-    })
-    var quantityChange = quantityOfItems[i]
-    
-    quantityChange.addEventListener('click', function(action){
-        var newVal = action.target
-        
-        console.log(newVal)
-    })
-}
-for(var i = 0; i < minusValue.length; i++){
-    var button = minusValue[i]
-    
-    button.addEventListener('click', function(event){
-        var buttonClicked = event.target
-        var input = buttonClicked.parentElement.children[1]
-        var inputValue = input.innerHTML;
-        var newValue = parseInt(inputValue) - 1
-        
-        
-        if(newValue >= 1 ){
-            input.innerHTML = newValue
-        }else{
-            input.innerHTML == 1
-        }
-    
-    })
+// vars
+
+    var price1 = document.getElementById('price-1')
+    var price2 = document.getElementById('price-2')
+    var price3 = document.getElementById('price-3')
+    var quant1 = document.getElementById('quant-1')
+    var quant2 = document.getElementById('quant-2')
+    var quant3 = document.getElementById('quant-3')
+    var subTot1 = document.getElementById('tot-1')
+    var subTot2 = document.getElementById('tot-2')
+    var subTot3 = document.getElementById('tot-3')
+    var total = document.getElementById('cart-total-price')
+    var tot = 0
+    var item1 = document.getElementById('item-1')
+    var item2 = document.getElementById('item-2')
+    var item3 = document.getElementById('item-3')
+    console.log(item2,item3)
+// calculate total    
+
+
+function inc1 (){
+    quant1.innerHTML=+quant1.innerHTML+1
+    var subTotal1 =+ parseInt(subTot1.innerHTML)+parseInt(price1.innerHTML);
+    subTot1.innerHTML = subTotal1.toFixed(2)
+    tot =+ parseInt(total.innerHTML) + parseInt(price1.innerHTML)
+    total.innerHTML = tot.toFixed(2)
 }
 
-// calculate sub price + total price
-var itemSinglePrices = document.getElementsByClassName('item-price')
-var quantityOfItems = document.getElementsByClassName('item-quantity')
-var itemSubTotals = document.getElementsByClassName('item-sub-total')
-var totalCart = document.getElementById('cart-total-price')
+function inc2 (){
+    quant2.innerHTML=+quant2.innerHTML+1
+    var subTotal2 =+ parseInt(subTot2.innerHTML)+parseInt(price2.innerHTML);
+    subTot2.innerHTML = subTotal2.toFixed(2)
+    tot =+ parseInt(total.innerHTML) + parseInt(price2.innerHTML)
+    total.innerHTML = tot.toFixed(2)
+}
 
-var summed = 0
+function inc3 (){
+    quant3.innerHTML=+quant3.innerHTML+1
+    var subTotal3 =+ parseInt(subTot3.innerHTML)+parseInt(price3.innerHTML);
+    subTot3.innerHTML = subTotal3.toFixed(2)
+    tot =+ parseInt(total.innerHTML) + parseInt(price3.innerHTML)
+    total.innerHTML = tot.toFixed(2)
+}
 
-for(var i = 0; i < quantityOfItems.length; i++){
-    
-    var itemSinglePrice = itemSinglePrices[i]
-    var valueOfItemSinglePrice = parseFloat(itemSinglePrice.innerText)
-    
-    var quantityOfItem = quantityOfItems[i]
-    var valueOfItemQuantity = parseInt(quantityOfItem.innerText)
-    
-    var newSubTotal = valueOfItemSinglePrice * valueOfItemQuantity
-    var newSubTotalDecimal = newSubTotal.toFixed(2)
-   
-    summed = summed + newSubTotal
-  
-    var itemSubTotal = itemSubTotals[i]
-    itemSubTotal.innerHTML = newSubTotalDecimal
-    
-    
-    var convToNum = parseInt(itemSubTotals[i].innerText)
-    
-    totalCart.innerHTML = summed.toFixed(2)
-    
+
+function dec1 (){
+    if (quant1.innerHTML==1){
+        quant1.innerHTML=+quant1.innerHTML
+        var subTotal1 =+ subTotal1
+        subTot1.innerHTML = subTot1.innerHTML
+        tot =+ tot.innerHTML
+        total.innerHTML = total.innerHTML
+      }else{
+        quant1.innerHTML=+quant1.innerHTML-1
+        var subTotal1 =+ parseInt(subTot1.innerHTML) - parseInt(price1.innerHTML);
+        subTot1.innerHTML = subTotal1.toFixed(2)
+        tot =+ parseInt(total.innerHTML) - parseInt(price1.innerHTML)
+        total.innerHTML = tot.toFixed(2)
+      }
+}
+
+function dec2 (){
+    if (quant2.innerHTML==1){
+        quant2.innerHTML=+quant2.innerHTML
+        var subTotal2 =+ subTotal2
+        subTot2.innerHTML = subTot2.innerHTML
+        tot =+ tot.innerHTML
+        total.innerHTML = total.innerHTML
+      }else{
+        quant2.innerHTML=+quant2.innerHTML-1
+        var subTotal2 =+ parseInt(subTot2.innerHTML) - parseInt(price2.innerHTML);
+        subTot2.innerHTML = subTotal2.toFixed(2)
+        tot =+ parseInt(total.innerHTML) - parseInt(price2.innerHTML)
+        total.innerHTML = tot.toFixed(2)
+      }
+}
+
+function dec3 (){
+    if (quant3.innerHTML==1){
+        quant3.innerHTML=+quant3.innerHTML
+        var subTotal3 =+ subTotal3
+        subTot3.innerHTML = subTot3.innerHTML
+        tot =+ tot.innerHTML
+        total.innerHTML = total.innerHTML
+      }else{
+        quant3.innerHTML=+quant3.innerHTML-1
+        var subTotal3 =+ parseInt(subTot3.innerHTML) - parseInt(price3.innerHTML);
+        subTot3.innerHTML = subTotal3.toFixed(2)
+        tot =+ parseInt(total.innerHTML) - parseInt(price3.innerHTML)
+        total.innerHTML = tot.toFixed(2)
+      }
+}
+
+function remove1(){
+    item1.remove()
+    tot =+ parseInt(total.innerHTML) - (parseInt(price1.innerHTML)*parseInt(quant1.innerHTML))
+    total.innerHTML = tot.toFixed(2)
+
+}
+
+function remove2(){
+    item2.remove()
+    tot =+ parseInt(total.innerHTML) - (parseInt(price2.innerHTML)*parseInt(quant2.innerHTML))
+    total.innerHTML = tot.toFixed(2)
+
+}
+
+function remove3(){
+    item3.remove()
+    tot =+ parseInt(total.innerHTML) - (parseInt(price3.innerHTML)*parseInt(quant3.innerHTML))
+    total.innerHTML = tot.toFixed(2)
+
+}
+
+function cancel(){
+    item1.remove()
+    item2.remove()
+    item3.remove()
+    tot = 0
+    total.innerHTML = tot.toFixed(2)
+
+}
+
+
+function thx (){
+    item1.remove()
+    item2.remove()
+    item3.remove()
+    tot = 0
+    total.innerHTML = tot.toFixed(2)
+    alert('Thank you for you purchase come back soon')
 }
